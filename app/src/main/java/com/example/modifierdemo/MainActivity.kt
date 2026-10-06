@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.modifierdemo.ui.theme.ModifierDemoTheme
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -46,6 +45,9 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     val mymodifier = modifier
         .border(width = 2.dp, color = Color.Black)
         .padding(all = 10.dp)
+
+    val secondModifier = Modifier.height(100.dp)
+
     Column(
         Modifier.padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -53,7 +55,7 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     ) {
     Text(
         "Hello Compose",
-        mymodifier,
+        mymodifier.then(secondModifier),
         fontSize = 40.sp,
         fontWeight = FontWeight.Bold
     )
